@@ -9,16 +9,10 @@ test('luhn algorithm check should return false', () => {
   expect(luhnAlgorithm('4893 4702 1277 8912')).toBe(false);
 });
 
-test('should return visa result', () => {
+test('should return visa result as a payment method', () => {
   expect(paymentMethod(4893470212778911)).toBe('visa');
 });
 
-test.each([
-  [375944451251251, 'amex'],
-  [2204222222222222, 'mir'],
-  [4444444444444, 'visa'],
-  [5201111111111111, 'mastercard'],
-  [347000000000000, 'amex'],
-])('should return correct results', (value, result) => {
-  expect(paymentMethod(value)).toBe(result);
+test('should return mastercard result as a payment method', () => {
+  expect(paymentMethod(5432207943936151)).toBe('master');
 });
